@@ -1,0 +1,5 @@
+date: 20181006
+version: v001
+client: ILM
+project: Star Wars
+naming_scheme: test_v###_artist_bla_2.####.ext
