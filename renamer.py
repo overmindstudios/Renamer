@@ -33,10 +33,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_renamer.Ui_MainWindow):
         '''parse config files and populate fields'''
         global available_configs
         config_index = 0
-        configlist = os.listdir('configs')
+        configlist = os.listdir('templates')
         for config in configlist:
             if fnmatch.fnmatch(config, '*.yml'):
-                with open(os.path.join('configs', config), 'r') as stream:
+                with open(os.path.join('templates', config), 'r') as stream:
                     try:
                         data = yaml.load(stream)
                         available_configs[config_index] = config
@@ -47,9 +47,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_renamer.Ui_MainWindow):
                         print(exc)
     
     def on_combobox_changed(self, value):
-        '''update configuration according to user selection'''
+        '''update settings according to config selection'''
         global available_configs
-        with open(os.path.join('configs', available_configs[value]), 'r') as stream:
+        with open(os.path.join('templates', available_configs[value]), 'r') as stream:
                     try:
                         data = yaml.load(stream)
                         self.statusbar.showMessage("Naming scheme: " + data.get('naming_scheme'))
