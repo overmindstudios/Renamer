@@ -42,7 +42,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_renamer.Ui_MainWindow):
                         available_configs[config_index] = config
                         config_index += 1
                         self.comboBox.addItem(str('{0:03d}'.format(config_index)) + " - " + str(data.get('date')) + " - " + data.get('client') + " - " + data.get('project') + " - " + data.get('version'))
-                        print(available_configs)
                     except yaml.YAMLError as exc:
                         print(exc)
     
